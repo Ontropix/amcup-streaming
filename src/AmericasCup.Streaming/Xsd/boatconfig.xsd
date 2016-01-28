@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="BoatConfig" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+  <xs:element name="Vtx">
+    <xs:complexType>
+      <xs:attribute name="Seq" type="xs:int" />
+      <xs:attribute name="Y" type="xs:float" />
+      <xs:attribute name="X" type="xs:float" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BoatConfig" msdata:IsDataSet="true" msdata:Locale="en-US">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="Vtx" />
+        <xs:element name="BoatShapes">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="BoatShape" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="Vertices" minOccurs="0" maxOccurs="unbounded">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element ref="Vtx" minOccurs="0" maxOccurs="unbounded" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="Catamaran" minOccurs="0" maxOccurs="unbounded">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element ref="Vtx" minOccurs="0" maxOccurs="unbounded" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="Bowsprit" minOccurs="0" maxOccurs="unbounded">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element ref="Vtx" minOccurs="0" maxOccurs="unbounded" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="Trampoline" minOccurs="0" maxOccurs="unbounded">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element ref="Vtx" minOccurs="0" maxOccurs="unbounded" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                  <xs:attribute name="ShapeID" type="xs:int" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Boats">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Boat" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="GPSposition" minOccurs="1" maxOccurs="1">
+                      <xs:complexType>
+                        <xs:attribute name="Z" type="xs:float" />
+                        <xs:attribute name="Y" type="xs:float" />
+                        <xs:attribute name="X" type="xs:float" />
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="MastTop" minOccurs="1" maxOccurs="1">
+                      <xs:complexType>
+                        <xs:attribute name="Z" type="xs:float" />
+                        <xs:attribute name="Y" type="xs:float" />
+                        <xs:attribute name="X" type="xs:float" />
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="FlagPosition" minOccurs="1" maxOccurs="1">
+                      <xs:complexType>
+                        <xs:attribute name="Z" type="xs:float" />
+                        <xs:attribute name="Y" type="xs:float" />
+                        <xs:attribute name="X" type="xs:float" />
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                  <xs:attribute name="Type" use="required">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:enumeration value="Yacht"/>
+                        <xs:enumeration value="RC"/>
+                        <xs:enumeration value="Mark"/>
+                        <xs:enumeration value="Umpire"/>
+                        <xs:enumeration value="Marshall" />
+                        <xs:enumeration value="Pin" />
+                        <xs:enumeration value="Helicopter" />
+                        <xs:enumeration value="ClientData" />
+                        <xs:enumeration value="UmpApp" />
+                        <xs:enumeration value="ProApp" />
+                        <xs:enumeration value="MDSS" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:attribute>
+                  <xs:attribute name="SourceID" type="xs:int" use="required" />
+                  <xs:attribute name="ShapeID" type="xs:string" use="required" />
+                  <xs:attribute name="StoweName" type="xs:string" use="required" />
+                  <xs:attribute name="ShortName" type="xs:string" use="required" />
+                  <xs:attribute name="BoatName" type="xs:string" use="required" />
+                  <xs:attribute name="HullNum" type="xs:string" use="required" />
+                  <xs:attribute name="Skipper" type="xs:string" use="required" />
+                  <xs:attribute name="ShorterName" type="xs:string" use="required" />
+                  <xs:attribute name="Country" type="xs:string" use="required" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

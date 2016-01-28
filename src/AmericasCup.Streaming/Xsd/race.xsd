@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="NewDataSet" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+  <xs:element name="Race">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="CreationTimeDate" type="xs:string" minOccurs="1" />        
+        <xs:element name="RaceID" type="xs:int" minOccurs="1" />
+        <xs:element name="RaceType" minOccurs="1" >
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:enumeration value="Match"/>
+              <xs:enumeration value="Fleet"/>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element name="Exclusions">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Zone" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="Limit" minOccurs="0" maxOccurs="unbounded">
+                      <xs:complexType>
+                        <xs:attribute name="SeqID" type="xs:int" />
+                        <xs:attribute name="Lat" type="xs:float" />
+                        <xs:attribute name="Lon" type="xs:float" />
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="RaceStartTime" minOccurs="1" maxOccurs="1">
+          <xs:complexType>
+            <xs:attribute name="Start" type="xs:string" />
+            <xs:attribute name="Postpone" type="xs:string" />
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Participants" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Yacht" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:attribute name="SourceID" type="xs:int" />
+                  <xs:attribute name="Entry">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:enumeration value="Port"/>
+                        <xs:enumeration value="Stbd"/>
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:attribute>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Course" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="CompoundMark" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="Mark" minOccurs="0" maxOccurs="unbounded">
+                      <xs:complexType>
+                        <xs:attribute name="SeqID" type="xs:int" />
+                        <xs:attribute name="Name" type="xs:string" />
+                        <xs:attribute name="TargetLat" type="xs:float" />
+                        <xs:attribute name="TargetLng" type="xs:float" />
+                        <xs:attribute name="SourceID" type="xs:int" />
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                  <xs:attribute name="CompoundMarkID" type="xs:int" />
+                  <xs:attribute name="Name" type="xs:string" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="CompoundMarkSequence" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Corner" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:attribute name="SeqID" type="xs:int" />
+                  <xs:attribute name="CompoundMarkID" type="xs:int" />
+                  <xs:attribute name="Rounding" type="xs:string" />
+                  <xs:attribute name="ZoneSize" type="xs:int" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="CourseLimit" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Limit" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:attribute name="SeqID" type="xs:int" use="required" />
+                  <xs:attribute name="Lat" type="xs:float" use="required"  />
+                  <xs:attribute name="Lon" type="xs:float" use="required"  />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
