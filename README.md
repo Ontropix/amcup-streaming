@@ -7,7 +7,11 @@ America's Cup data streaming
     {
         public void OnMessageReceived(Message message)
         {
-            System.Console.WriteLine("{0} {1} {2}", message.Header.SourceId, message.Header.TimeStamp, message.Header.Type);
+            System.Console.WriteLine("{0} {1} {2}", 
+                message.Header.SourceId,
+                message.Header.TimeStamp, 
+                message.Header.Type
+            );
         }
     }
     
